@@ -8,6 +8,7 @@ const response = require("./middlewares/response.middleware");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Connecting database
 mongoose
@@ -21,6 +22,7 @@ mongoose
 
 // Router
 const tourRoute = require("./routes/tour.route");
+const reviewRoute = require("./routes/review.route");
 const authRoute = require("./routes/auth.route");
 
 // Overide Repsonse Json
@@ -29,6 +31,7 @@ app.use(response.json);
 // Route
 app.use("/v1/", authRoute);
 app.use("/v1/tours", tourRoute);
+app.use("/v1/reviews", reviewRoute);
 
 // Not found handler
 app.all("*", error.notFound);

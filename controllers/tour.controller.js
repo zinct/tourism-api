@@ -9,7 +9,7 @@ exports.getAllTours = async (req, res, next) => {
 };
 
 exports.getTour = async (req, res) => {
-  const tour = await Tour.findById(req.params.id);
+  const tour = await Tour.findById(req.params.id).populate("reviews");
   res.json({ success: true, code: 200, data: tour });
 };
 

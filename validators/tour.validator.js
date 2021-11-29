@@ -1,0 +1,18 @@
+exports.create = {
+  name: "required",
+  durations: "required|numeric",
+  maxGroupSize: "required|numeric",
+  difficulty: "required|in:easy,medium,hard",
+  price: "required|numeric",
+  description: "required",
+  summary: "required",
+  // images: "nullable",
+  // imageCover: "nullable",
+  startDates: "required|array",
+  "startDates.*": "required|date",
+  "startLocation.coordinates": "required|array",
+  "startLocation.coordinates.*": "required|numeric",
+  "startLocation.address": "required",
+  "startLocation.description": "required",
+  tourGuides: "required|array",
+};
